@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF9F2"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tambah Hewan 🐾"
+            android:id="@+id/tvFormTitle"
+            android:textColor="#245B49"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Yuk, lengkapi informasi hewan kesayanganmu!"
+            android:id="@+id/tvFormSubtitle"
+            android:textColor="#527C6B"
+            android:textSize="14sp"
+            android:layout_marginBottom="24dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="3dp"
+            app:contentPadding="18dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/etPetName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nama Hewan"
+                    android:inputType="textCapWords"
+                    android:padding="14dp"
+                    android:textColor="#245B49"
+                    android:textColorHint="#8B938B"
+                    android:backgroundTint="#A8CDBE"
+                    android:layout_marginBottom="12dp" />
+
+                <EditText
+                    android:id="@+id/etPetType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Jenis Hewan (Kucing, Anjing, dll.)"
+                    android:inputType="textCapWords"
+                    android:padding="14dp"
+                    android:textColor="#245B49"
+                    android:textColorHint="#8B938B"
+                    android:backgroundTint="#A8CDBE"
+                    android:layout_marginBottom="12dp" />
+
+                <EditText
+                    android:id="@+id/etPetBreed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ras Hewan"
+                    android:inputType="textCapWords"
+                    android:padding="14dp"
+                    android:textColor="#245B49"
+                    android:textColorHint="#8B938B"
+                    android:backgroundTint="#A8CDBE"
+                    android:layout_marginBottom="12dp" />
+
+                <EditText
+                    android:id="@+id/etPetAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Umur (tahun)"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:padding="14dp"
+                    android:textColor="#245B49"
+                    android:textColorHint="#8B938B"
+                    android:backgroundTint="#A8CDBE"
+                    android:layout_marginBottom="12dp" />
+
+                <EditText
+                    android:id="@+id/etPetWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Berat Badan (kg)"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:padding="14dp"
+                    android:textColor="#245B49"
+                    android:textColorHint="#8B938B"
+                    android:backgroundTint="#A8CDBE"
+                    android:layout_marginBottom="20dp" />
+
+                <Button
+                    android:id="@+id/btnSavePet"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="Simpan Hewan"
+                    android:textAllCaps="false"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#39977D"
+                    app:cornerRadius="26dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>
