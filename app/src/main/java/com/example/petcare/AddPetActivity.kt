@@ -25,7 +25,6 @@ class AddPetActivity : AppCompatActivity() {
         val btnSavePet = findViewById<Button>(R.id.btnSavePet)
 
         btnSavePet.setOnClickListener {
-
             val name = etPetName.text.toString().trim()
             val type = etPetType.text.toString().trim()
             val breed = etPetBreed.text.toString().trim()
@@ -38,7 +37,7 @@ class AddPetActivity : AppCompatActivity() {
             ) {
                 Toast.makeText(
                     this,
-                    "Semua kolom harus diisi!",
+                    getString(R.string.all_fields_required),
                     Toast.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
@@ -50,7 +49,7 @@ class AddPetActivity : AppCompatActivity() {
             if (age == null || weight == null || age < 0 || weight <= 0) {
                 Toast.makeText(
                     this,
-                    "Umur atau berat badan tidak valid!",
+                    getString(R.string.invalid_pet_data),
                     Toast.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
@@ -63,7 +62,7 @@ class AddPetActivity : AppCompatActivity() {
             if (result != -1L) {
                 Toast.makeText(
                     this,
-                    "Data hewan berhasil disimpan!",
+                    getString(R.string.save_success),
                     Toast.LENGTH_SHORT
                 ).show()
 
@@ -71,7 +70,7 @@ class AddPetActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this,
-                    "Gagal menyimpan data hewan!",
+                    getString(R.string.save_failed),
                     Toast.LENGTH_SHORT
                 ).show()
             }

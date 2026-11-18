@@ -176,19 +176,21 @@ class MainActivity : AppCompatActivity() {
             }
             .show()
     }
+
     private fun editPet(pet: Pet) {
         val view = layoutInflater.inflate(
             R.layout.activity_add_pet,
             null
         )
+
         // Ubah judul dan deskripsi khusus mode Edit
         view.findViewById<TextView>(R.id.tvFormTitle).text =
-            "Edit Hewan 🐾"
+            getString(R.string.edit_pet)
 
         view.findViewById<TextView>(R.id.tvFormSubtitle).text =
-            "Perbarui informasi hewan kesayanganmu."
+            getString(R.string.edit_pet_subtitle)
 
-// Sembunyikan tombol Simpan dari formulir
+        // Sembunyikan tombol Simpan dari formulir
         view.findViewById<Button>(R.id.btnSavePet).visibility =
             View.GONE
 
@@ -205,10 +207,10 @@ class MainActivity : AppCompatActivity() {
         weight.setText(pet.weight.toString())
 
         android.app.AlertDialog.Builder(this)
-            .setTitle("Edit Data Hewan")
+            .setTitle(getString(R.string.edit_dialog_title))
             .setView(view)
-            .setPositiveButton("Simpan", null)
-            .setNegativeButton("Batal", null)
+            .setPositiveButton(getString(R.string.save), null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .create()
             .apply {
                 setOnShowListener {
@@ -227,7 +229,7 @@ class MainActivity : AppCompatActivity() {
                             ) {
                                 android.widget.Toast.makeText(
                                     this@MainActivity,
-                                    "Periksa kembali semua data!",
+                                    getString(R.string.check_data),
                                     android.widget.Toast.LENGTH_SHORT
                                 ).show()
                                 return@setOnClickListener
@@ -252,25 +254,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun confirmDeletePet(pet: Pet) {
         android.app.AlertDialog.Builder(this)
-            .setTitle("Hapus Hewan?")
-            .setMessage("Apakah kamu yakin ingin menghapus ${pet.name}?")
-            .setPositiveButton("Hapus") { _, _ ->
+            .setTitle(getString(R.string.delete_pet_title))
+            .setMessage(getString(R.string.delete_pet_message, pet.name))
+            .setPositiveButton(getString(R.string.delete)) { _, _ ->
                 dbHelper.deletePet(pet.id)
                 displayPets()
 
                 android.widget.Toast.makeText(
                     this,
-                    "${pet.name} berhasil dihapus",
+                    getString(R.string.delete_success, pet.name),
                     android.widget.Toast.LENGTH_SHORT
                 ).show()
             }
-            .setNegativeButton("Batal", null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
-    }
-
-
-    override fun onDestroy() {
-        dbHelper.close()
-        super.onDestroy()
     }
 }

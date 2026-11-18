@@ -1,3 +1,37 @@
 <resources>
+    <!-- Nama aplikasi -->
     <string name="app_name">PetCare</string>
+
+    <!-- Beranda -->
+    <string name="greeting">Sahabat kecil, perawatan terbaik!</string>
+    <string name="home_slogan">Yuk, cek kabar hewan kesayanganmu!</string>
+    <string name="section_pets">🐾 Hewan Kesayanganku</string>
+    <string name="subtitle_pets">Kenalan dengan teman berbulu di rumah</string>
+    <string name="search_hint">Cari nama, jenis, atau ras hewan...</string>
+    <string name="empty_pets">Hewan tidak ditemukan 🐾</string>
+    <string name="add_pet">＋ Tambah Hewan</string>
+    <string name="logout">Logout</string>
+
+    <!-- Form hewan -->
+    <string name="edit_pet">Edit Hewan 🐾</string>
+    <string name="edit_pet_subtitle">Perbarui informasi hewan kesayanganmu.</string>
+    <string name="save">Simpan</string>
+    <string name="cancel">Batal</string>
+
+    <!-- Validasi -->
+    <string name="all_fields_required">Semua kolom harus diisi!</string>
+    <string name="invalid_pet_data">Umur atau berat badan tidak valid!</string>
+    <string name="check_data">Periksa kembali semua data!</string>
+
+    <!-- Hasil penyimpanan -->
+    <string name="save_success">Data hewan berhasil disimpan!</string>
+    <string name="save_failed">Gagal menyimpan data hewan!</string>
+
+    <!-- Edit dan hapus hewan -->
+    <string name="edit_dialog_title">Edit Data Hewan</string>
+    <string name="delete_pet_title">Hapus Hewan?</string>
+    <string name="delete_pet_message">Apakah kamu yakin ingin menghapus %1$s?</string>
+    <string name="delete">Hapus</string>
+    <string name="delete_success">%1$s berhasil dihapus</string>
+
 </resources>
