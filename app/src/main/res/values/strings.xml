@@ -33,5 +33,5 @@
     <string name="delete_pet_message">Apakah kamu yakin ingin menghapus %1$s?</string>
     <string name="delete">Hapus</string>
     <string name="delete_success">%1$s berhasil dihapus</string>
-
+    <string name="load_pets_error">Gagal memuat data hewan. Silakan coba lagi.</string>
 </resources>

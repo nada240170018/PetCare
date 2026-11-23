@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-
 class PetDetailActivity : AppCompatActivity() {
 
     private lateinit var dbHelper: PetDatabaseHelper
@@ -42,6 +41,9 @@ class PetDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pet_detail)
+        findViewById<TextView>(R.id.tvBackDetail).setOnClickListener {
+            finish()
+        }
 
         dbHelper = PetDatabaseHelper(this)
 

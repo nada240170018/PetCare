@@ -12,9 +12,14 @@
         android:padding="22dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/tvBackDetail"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:text="← Detail Hewan"
+            android:gravity="center_vertical"
+            android:paddingStart="4dp"
+            android:clickable="true"
+            android:focusable="true"
             android:textColor="#354B40"
             android:textSize="23sp"
             android:textStyle="bold"

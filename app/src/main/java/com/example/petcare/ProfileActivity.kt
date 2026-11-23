@@ -1,9 +1,13 @@
 package com.example.petcare
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -14,7 +18,54 @@ class ProfileActivity : AppCompatActivity() {
         val tvEmail = findViewById<TextView>(R.id.tvProfileEmail)
 
         val currentUser = FirebaseAuth.getInstance().currentUser
-
         tvEmail.text = currentUser?.email ?: "Email tidak tersedia"
+
+        val btnLogout = findViewById<Button>(R.id.btnLogout)
+
+        btnLogout.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Logout")
+                .setMessage("Apakah kamu yakin ingin keluar dari akun PetCare?")
+                .setPositiveButton("Ya, Keluar") { _, _ ->
+                    FirebaseAuth.getInstance().signOut()
+
+                    val intent = Intent(this, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+                    startActivity(intent)
+                    finish()
+                }
+                .setNegativeButton("Batal", null)
+                .show()
+        }
+
+        val bottomNavigation =
+            findViewById<BottomNavigationView>(R.id.bottomNavigation)
+
+        bottomNavigation.selectedItemId = R.id.nav_profile
+
+        bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home, R.id.nav_pets -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("OPEN_TAB", item.itemId)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+
+                R.id.nav_schedule -> {
+                    startActivity(
+                        Intent(this, CareScheduleActivity::class.java)
+                    )
+                    finish()
+                    true
+                }
+
+                R.id.nav_profile -> true
+                else -> false
+            }
+        }
     }
 }

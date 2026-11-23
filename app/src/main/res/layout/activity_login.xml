@@ -7,8 +7,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="28dp">
 
@@ -43,6 +43,7 @@
             android:backgroundTint="#399B82"
             android:hint="Email"
             android:inputType="textEmailAddress"
+            android:imeOptions="flagNoExtractUi"
             android:padding="12dp" />
 
         <EditText
@@ -53,6 +54,7 @@
             android:backgroundTint="#399B82"
             android:hint="Password"
             android:inputType="textPassword"
+            android:imeOptions="flagNoExtractUi"
             android:padding="12dp" />
 
         <Button

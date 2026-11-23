@@ -2,11 +2,15 @@ package com.example.petcare
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -26,6 +30,7 @@ class RegisterActivity : AppCompatActivity() {
         val btnBackLogin = findViewById<Button>(R.id.btnBackLogin)
 
         btnRegister.setOnClickListener {
+
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString()
             val confirmPassword = etConfirmPassword.text.toString()
@@ -34,6 +39,19 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(
                     this,
                     "Semua kolom wajib diisi",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            if (
+                !Patterns.EMAIL_ADDRESS.matcher(email).matches() ||
+                !email.contains("@") ||
+                !email.substringAfter("@").contains(".")
+            ) {
+                Toast.makeText(
+                    this,
+                    "Format email tidak valid",
                     Toast.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
@@ -61,9 +79,11 @@ class RegisterActivity : AppCompatActivity() {
 
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
+
                     btnRegister.isEnabled = true
 
                     if (task.isSuccessful) {
+
                         Toast.makeText(
                             this,
                             "Pendaftaran berhasil!",
@@ -76,11 +96,36 @@ class RegisterActivity : AppCompatActivity() {
                             Intent(this, LoginActivity::class.java)
                         )
                         finish()
+
                     } else {
+
+                        val message = when (task.exception) {
+
+                            is FirebaseAuthUserCollisionException ->
+                                "Email sudah terdaftar. Gunakan email lain."
+
+                            is FirebaseAuthWeakPasswordException ->
+                                "Password terlalu lemah. Gunakan minimal 6 karakter."
+
+                            is FirebaseNetworkException ->
+                                "Koneksi internet bermasalah. Periksa jaringanmu."
+
+                            else -> {
+                                if (task.exception?.message?.contains(
+                                        "too-many-requests",
+                                        ignoreCase = true
+                                    ) == true
+                                ) {
+                                    "Terlalu banyak percobaan. Coba lagi nanti."
+                                } else {
+                                    "Pendaftaran gagal. Silakan coba kembali."
+                                }
+                            }
+                        }
+
                         Toast.makeText(
                             this,
-                            task.exception?.localizedMessage
-                                ?: "Pendaftaran gagal",
+                            message,
                             Toast.LENGTH_LONG
                         ).show()
                     }

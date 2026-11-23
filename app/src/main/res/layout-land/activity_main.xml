@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="6dp"
+        android:padding="8dp"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
         android:layout_marginTop="4dp"
@@ -43,47 +43,167 @@
                 android:layout_height="wrap_content"
                 android:text="@string/greeting"
                 android:textColor="#527C6B"
-                android:textSize="10sp"
-                android:layout_marginTop="2dp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/home_slogan"
                 android:textColor="#527C6B"
-                android:textSize="9sp"
-                android:layout_marginTop="1dp" />
-
+                android:textSize="9sp" />
         </LinearLayout>
 
-        <LinearLayout
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="🐶"
+            android:textSize="28sp" />
+    </LinearLayout>
+
+    <!-- Dashboard Beranda -->
+    <ScrollView
+        android:id="@+id/homeDashboard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/headerCard"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🐶"
-                android:textSize="28sp" />
+            <!-- KOLOM KIRI -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:padding="10dp">
 
-            <Button
-                android:id="@+id/btnLogout"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:layout_marginStart="8dp"
-                android:text="@string/logout"
-                android:textAllCaps="false"
-                android:textSize="10sp"
-                android:textColor="#FFFFFF"
-                android:backgroundTint="#D97965"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dashboard 🐾"
+                    android:textColor="#294F40"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Semua perhatian terbaik untuk sahabat kecilmu."
+                    android:textColor="#89958D"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_header_petcare">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🐾 SAHABAT KECILKU"
+                        android:textColor="#477966"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvTotalPets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 Hewan"
+                        android:textColor="#245B49"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp" />
+
+                    <Button
+                        android:id="@+id/btnGoPets"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:text="Lihat Koleksi Hewanku →"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#39977D"
+                        android:layout_marginTop="10dp"
+                        app:cornerRadius="24dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- KOLOM KANAN -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yuk, Mulai Aktivitas! ✨"
+                    android:textColor="#294F40"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🐶  Data Hewan"
+                    android:textColor="#527C6B"
+                    android:textSize="14sp"
+                    android:layout_marginTop="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📅  Jadwal Perawatan"
+                    android:textColor="#527C6B"
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💉  Jangan lupa pantau jadwal vaksin dan perawatan sahabatmu."
+                    android:textColor="#795A38"
+                    android:textSize="13sp"
+                    android:layout_marginTop="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💚  Pastikan sahabatmu mendapat makanan bergizi dan air bersih."
+                    android:textColor="#527C6B"
+                    android:textSize="13sp"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
     <!-- Section title -->
     <TextView
@@ -144,6 +264,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <ProgressBar
+        android:id="@+id/progressBarPets"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:indeterminateTint="#39977D"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/rvPets"
+        app:layout_constraintBottom_toBottomOf="@id/rvPets"
+        app:layout_constraintStart_toStartOf="@id/rvPets"
+        app:layout_constraintEnd_toEndOf="@id/rvPets" />
+
     <!-- Empty state -->
     <TextView
         android:id="@+id/tvEmptyPets"
@@ -178,7 +309,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
@@ -193,6 +323,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

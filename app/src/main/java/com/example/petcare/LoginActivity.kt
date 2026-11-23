@@ -2,11 +2,15 @@ package com.example.petcare
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
+import com.google.firebase.FirebaseNetworkException
 
 class LoginActivity : AppCompatActivity() {
 
@@ -29,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
         val btnGoRegister = findViewById<Button>(R.id.btnGoRegister)
 
         btnLogin.setOnClickListener {
+
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString()
 
@@ -41,20 +46,58 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(
+                    this,
+                    "Format email tidak valid",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            btnLogin.isEnabled = false
+
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
+
+                    btnLogin.isEnabled = true
+
                     if (task.isSuccessful) {
+
                         Toast.makeText(
                             this,
                             "Login berhasil!",
                             Toast.LENGTH_SHORT
                         ).show()
+
                         goToMain()
+
                     } else {
+
+                        val message = when (task.exception) {
+
+                            is FirebaseAuthInvalidCredentialsException,
+                            is FirebaseAuthInvalidUserException ->
+                                "Email atau password salah."
+
+                            is FirebaseNetworkException ->
+                                "Koneksi internet bermasalah. Periksa jaringanmu."
+
+                            else -> {
+                                if (task.exception?.message?.contains(
+                                        "too-many-requests",
+                                        ignoreCase = true
+                                    ) == true
+                                ) {
+                                    "Terlalu banyak percobaan. Coba lagi nanti."
+                                } else {
+                                    "Login gagal. Silakan coba kembali."
+                                }
+                            }
+                        }
                         Toast.makeText(
                             this,
-                            task.exception?.localizedMessage
-                                ?: "Login gagal",
+                            message,
                             Toast.LENGTH_LONG
                         ).show()
                     }
@@ -62,14 +105,18 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnGoRegister.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            startActivity(
+                Intent(this, RegisterActivity::class.java)
+            )
         }
     }
 
     private fun goToMain() {
         val intent = Intent(this, MainActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or
-                Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.flags =
+            Intent.FLAG_ACTIVITY_NEW_TASK or
+                    Intent.FLAG_ACTIVITY_CLEAR_TASK
+
         startActivity(intent)
         finish()
     }
