@@ -30,7 +30,6 @@ class RegisterActivity : AppCompatActivity() {
         val btnBackLogin = findViewById<Button>(R.id.btnBackLogin)
 
         btnRegister.setOnClickListener {
-
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString()
             val confirmPassword = etConfirmPassword.text.toString()
@@ -38,7 +37,7 @@ class RegisterActivity : AppCompatActivity() {
             if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(
                     this,
-                    "Semua kolom wajib diisi",
+                    getString(R.string.register_empty_fields),
                     Toast.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
@@ -51,7 +50,7 @@ class RegisterActivity : AppCompatActivity() {
             ) {
                 Toast.makeText(
                     this,
-                    "Format email tidak valid",
+                    getString(R.string.register_invalid_email),
                     Toast.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
@@ -60,7 +59,7 @@ class RegisterActivity : AppCompatActivity() {
             if (password.length < 6) {
                 Toast.makeText(
                     this,
-                    "Password minimal 6 karakter",
+                    getString(R.string.register_password_short),
                     Toast.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
@@ -69,7 +68,7 @@ class RegisterActivity : AppCompatActivity() {
             if (password != confirmPassword) {
                 Toast.makeText(
                     this,
-                    "Konfirmasi password tidak cocok",
+                    getString(R.string.register_password_mismatch),
                     Toast.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
@@ -79,14 +78,13 @@ class RegisterActivity : AppCompatActivity() {
 
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
-
                     btnRegister.isEnabled = true
 
                     if (task.isSuccessful) {
 
                         Toast.makeText(
                             this,
-                            "Pendaftaran berhasil!",
+                            getString(R.string.register_success),
                             Toast.LENGTH_LONG
                         ).show()
 
@@ -102,13 +100,13 @@ class RegisterActivity : AppCompatActivity() {
                         val message = when (task.exception) {
 
                             is FirebaseAuthUserCollisionException ->
-                                "Email sudah terdaftar. Gunakan email lain."
+                                getString(R.string.register_email_exists)
 
                             is FirebaseAuthWeakPasswordException ->
-                                "Password terlalu lemah. Gunakan minimal 6 karakter."
+                                getString(R.string.register_weak_password)
 
                             is FirebaseNetworkException ->
-                                "Koneksi internet bermasalah. Periksa jaringanmu."
+                                getString(R.string.login_network_error)
 
                             else -> {
                                 if (task.exception?.message?.contains(
@@ -116,9 +114,9 @@ class RegisterActivity : AppCompatActivity() {
                                         ignoreCase = true
                                     ) == true
                                 ) {
-                                    "Terlalu banyak percobaan. Coba lagi nanti."
+                                    getString(R.string.login_too_many_attempts)
                                 } else {
-                                    "Pendaftaran gagal. Silakan coba kembali."
+                                    getString(R.string.register_failed)
                                 }
                             }
                         }

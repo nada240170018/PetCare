@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PetCare 🐾"
+                android:text="@string/home_title"
                 android:textColor="#245B49"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -96,7 +96,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dashboard 🐾"
+                    android:text="@string/land_dashboard_title"
                     android:textColor="#294F40"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -104,7 +104,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Semua perhatian terbaik untuk sahabat kecilmu."
+                    android:text="@string/land_dashboard_subtitle"
                     android:textColor="#89958D"
                     android:textSize="12sp"
                     android:layout_marginTop="4dp" />
@@ -120,7 +120,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🐾 SAHABAT KECILKU"
+                        android:text="@string/land_pet_collection"
                         android:textColor="#477966"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -129,7 +129,7 @@
                         android:id="@+id/tvTotalPets"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0 Hewan"
+                        android:text="@string/land_pet_count"
                         android:textColor="#245B49"
                         android:textSize="28sp"
                         android:textStyle="bold"
@@ -139,7 +139,7 @@
                         android:id="@+id/btnGoPets"
                         android:layout_width="match_parent"
                         android:layout_height="44dp"
-                        android:text="Lihat Koleksi Hewanku →"
+                        android:text="@string/land_view_pets"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textColor="#FFFFFF"
@@ -162,7 +162,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Yuk, Mulai Aktivitas! ✨"
+                    android:text="@string/land_activities_title"
                     android:textColor="#294F40"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -170,7 +170,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🐶  Data Hewan"
+                    android:text="@string/land_pet_data"
                     android:textColor="#527C6B"
                     android:textSize="14sp"
                     android:layout_marginTop="14dp" />
@@ -178,7 +178,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="📅  Jadwal Perawatan"
+                    android:text="@string/land_schedule"
                     android:textColor="#527C6B"
                     android:textSize="14sp"
                     android:layout_marginTop="10dp" />
@@ -186,7 +186,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="💉  Jangan lupa pantau jadwal vaksin dan perawatan sahabatmu."
+                    android:text="@string/land_reminder"
                     android:textColor="#795A38"
                     android:textSize="13sp"
                     android:layout_marginTop="16dp" />
@@ -194,7 +194,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="💚  Pastikan sahabatmu mendapat makanan bergizi dan air bersih."
+                    android:text="@string/land_care_tip"
                     android:textColor="#527C6B"
                     android:textSize="13sp"
                     android:layout_marginTop="10dp" />

@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-
+import android.content.Context
+import kotlin.math.roundToInt
 class PetAdapter(
     private var petList: List<Pet>,
     private val onPetClick: (Pet) -> Unit
@@ -40,8 +41,14 @@ class PetAdapter(
 
         holder.petName.text = pet.name
         holder.petType.text = "${pet.type} • ${pet.breed}"
-        holder.petDetails.text =
-            "🎂 ${pet.age} tahun   ⚖️ ${pet.weight} kg"
+        holder.petDetails.text = holder.itemView.context.getString(
+            R.string.pet_details,
+            formatAge(holder.itemView.context, pet.age),
+            holder.itemView.context.getString(
+                R.string.pet_weight,
+                pet.weight.toString()
+            )
+        )
 
         if (!pet.photoUri.isNullOrEmpty()) {
             try {
@@ -61,7 +68,27 @@ class PetAdapter(
             onPetClick(pet)
         }
     }
+    private fun formatAge(context: Context, ageInYears: Double): String {
+        val totalMonths = (ageInYears * 12).roundToInt()
 
+        val years = totalMonths / 12
+        val months = totalMonths % 12
+
+        return when {
+            totalMonths < 12 ->
+                context.getString(R.string.age_months, totalMonths)
+
+            months == 0 ->
+                context.getString(R.string.age_years, years)
+
+            else ->
+                context.getString(
+                    R.string.age_years_months,
+                    years,
+                    months
+                )
+        }
+    }
     override fun getItemCount(): Int {
         return petList.size
     }

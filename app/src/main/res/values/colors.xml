@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Warna dasar -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Tema PetCare -->
+    <color name="petcare_primary">#39977D</color>
+    <color name="petcare_dark">#245B49</color>
+    <color name="petcare_secondary">#527C6B</color>
+    <color name="petcare_background">#FFF9F2</color>
+    <color name="petcare_surface">#FFFFFF</color>
+    <color name="petcare_accent">#E8F3EC</color>
+    <color name="petcare_error">#D97979</color>
+
 </resources>

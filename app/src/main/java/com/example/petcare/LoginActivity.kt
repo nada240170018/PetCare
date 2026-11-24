@@ -33,14 +33,13 @@ class LoginActivity : AppCompatActivity() {
         val btnGoRegister = findViewById<Button>(R.id.btnGoRegister)
 
         btnLogin.setOnClickListener {
-
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(
                     this,
-                    "Email dan password wajib diisi",
+                    getString(R.string.login_empty_fields),
                     Toast.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
@@ -49,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 Toast.makeText(
                     this,
-                    "Format email tidak valid",
+                    getString(R.string.login_invalid_email),
                     Toast.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
@@ -59,14 +58,12 @@ class LoginActivity : AppCompatActivity() {
 
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
-
                     btnLogin.isEnabled = true
 
                     if (task.isSuccessful) {
-
                         Toast.makeText(
                             this,
-                            "Login berhasil!",
+                            getString(R.string.login_success),
                             Toast.LENGTH_SHORT
                         ).show()
 
@@ -78,10 +75,10 @@ class LoginActivity : AppCompatActivity() {
 
                             is FirebaseAuthInvalidCredentialsException,
                             is FirebaseAuthInvalidUserException ->
-                                "Email atau password salah."
+                                getString(R.string.login_wrong_credentials)
 
                             is FirebaseNetworkException ->
-                                "Koneksi internet bermasalah. Periksa jaringanmu."
+                                getString(R.string.login_network_error)
 
                             else -> {
                                 if (task.exception?.message?.contains(
@@ -89,12 +86,13 @@ class LoginActivity : AppCompatActivity() {
                                         ignoreCase = true
                                     ) == true
                                 ) {
-                                    "Terlalu banyak percobaan. Coba lagi nanti."
+                                    getString(R.string.login_too_many_attempts)
                                 } else {
-                                    "Login gagal. Silakan coba kembali."
+                                    getString(R.string.login_failed)
                                 }
                             }
                         }
+
                         Toast.makeText(
                             this,
                             message,

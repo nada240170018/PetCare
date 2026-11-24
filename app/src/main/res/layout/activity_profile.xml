@@ -26,7 +26,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Profil Saya 🐾"
+                android:text="@string/profile_title"
                 android:textColor="#245B49"
                 android:textSize="25sp"
                 android:textStyle="bold"
@@ -36,7 +36,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kenali akun dan aktivitas PetCare kamu"
+                android:text="@string/profile_subtitle"
                 android:textColor="#8B938B"
                 android:textSize="13sp"
                 android:gravity="center"
@@ -53,7 +53,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sahabat Hewan Kesayangan"
+                android:text="@string/profile_pet_title"
                 android:textColor="#245B49"
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Terima kasih sudah merawat mereka bersama PetCare! 💚"
+                android:text="@string/profile_thank_you"
                 android:textColor="#8B938B"
                 android:textSize="12sp"
                 android:gravity="center"
@@ -85,7 +85,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="👤  Informasi Akun"
+                        android:text="@string/profile_account_info"
                         android:textColor="#245B49"
                         android:textSize="17sp"
                         android:textStyle="bold"
@@ -94,7 +94,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Email Akun"
+                        android:text="@string/profile_email_label"
                         android:textColor="#8B938B"
                         android:textSize="12sp" />
 
@@ -102,7 +102,7 @@
                         android:id="@+id/tvProfileEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="email pengguna"
+                        android:text="@string/profile_email_placeholder"
                         android:textColor="#245B49"
                         android:textSize="15sp"
                         android:textStyle="bold"
@@ -118,14 +118,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Status Akun"
+                        android:text="@string/profile_status_label"
                         android:textColor="#8B938B"
                         android:textSize="12sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="●  Aktif"
+                        android:text="@string/profile_active"
                         android:textColor="#39977D"
                         android:textSize="14sp"
                         android:textStyle="bold"
@@ -140,7 +140,7 @@
                 android:layout_height="54dp"
                 android:layout_marginTop="22dp"
                 android:layout_marginBottom="12dp"
-                android:text="Keluar dari Akun  ↗"
+                android:text="@string/profile_logout_button"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -165,7 +165,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🌷  Tentang PetCare"
+                        android:text="@string/profile_about_title"
                         android:textColor="#245B49"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -173,7 +173,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="PetCare membantu kamu mengelola data hewan peliharaan, menyimpan foto, serta mencatat jadwal vaksinasi dan perawatan agar sahabat kecilmu selalu sehat."
+                        android:text="@string/profile_about_description"
                         android:textColor="#527C6B"
                         android:textSize="13sp"
                         android:lineSpacingExtra="4dp"
@@ -182,7 +182,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Made with 💚 for your lovely pets"
+                        android:text="@string/profile_footer"
                         android:textColor="#39977D"
                         android:textSize="12sp"
                         android:textStyle="bold"

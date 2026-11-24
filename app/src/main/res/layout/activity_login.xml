@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="PetCare"
+            android:text="@string/app_name"
             android:textColor="#267D68"
             android:textSize="32sp"
             android:textStyle="bold" />
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Selamat datang kembali!"
+            android:text="@string/login_welcome"
             android:textColor="#555555"
             android:textSize="16sp" />
 
@@ -41,7 +41,7 @@
             android:layout_height="55dp"
             android:layout_marginTop="32dp"
             android:backgroundTint="#399B82"
-            android:hint="Email"
+            android:hint="@string/login_email_hint"
             android:inputType="textEmailAddress"
             android:imeOptions="flagNoExtractUi"
             android:padding="12dp" />
@@ -52,7 +52,7 @@
             android:layout_height="55dp"
             android:layout_marginTop="12dp"
             android:backgroundTint="#399B82"
-            android:hint="Password"
+            android:hint="@string/login_password_hint"
             android:inputType="textPassword"
             android:imeOptions="flagNoExtractUi"
             android:padding="12dp" />
@@ -63,7 +63,7 @@
             android:layout_height="55dp"
             android:layout_marginTop="24dp"
             android:backgroundTint="#399B82"
-            android:text="Login"
+            android:text="@string/login_button"
             android:textColor="#FFFFFF" />
 
         <Button
@@ -72,7 +72,7 @@
             android:layout_height="55dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#E6F3ED"
-            android:text="Belum punya akun? Daftar"
+            android:text="@string/login_register_prompt"
             android:textColor="#267D68" />
 
     </LinearLayout>

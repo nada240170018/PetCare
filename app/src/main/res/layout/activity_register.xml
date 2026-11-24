@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Buat Akun PetCare"
+            android:text="@string/register_title"
             android:textColor="#267D68"
             android:textSize="28sp"
             android:textStyle="bold" />
@@ -32,7 +32,7 @@
             android:layout_height="55dp"
             android:layout_marginTop="32dp"
             android:backgroundTint="#399B82"
-            android:hint="Email"
+            android:hint="@string/register_email_hint"
             android:inputType="textEmailAddress"
             android:padding="12dp" />
 
@@ -42,7 +42,7 @@
             android:layout_height="55dp"
             android:layout_marginTop="12dp"
             android:backgroundTint="#399B82"
-            android:hint="Password (minimal 6 karakter)"
+            android:hint="@string/register_password_hint"
             android:inputType="textPassword"
             android:padding="12dp" />
 
@@ -52,7 +52,7 @@
             android:layout_height="55dp"
             android:layout_marginTop="12dp"
             android:backgroundTint="#399B82"
-            android:hint="Konfirmasi Password"
+            android:hint="@string/register_confirm_password_hint"
             android:inputType="textPassword"
             android:padding="12dp" />
 
@@ -62,7 +62,7 @@
             android:layout_height="55dp"
             android:layout_marginTop="24dp"
             android:backgroundTint="#399B82"
-            android:text="Daftar Sekarang"
+            android:text="@string/register_button"
             android:textColor="#FFFFFF" />
 
         <Button
@@ -71,7 +71,7 @@
             android:layout_height="55dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#E6F3ED"
-            android:text="Kembali ke Login"
+            android:text="@string/register_back_login"
             android:textColor="#267D68" />
 
     </LinearLayout>

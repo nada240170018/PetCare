@@ -1,3 +1,4 @@
+
 package com.example.petcare
 
 import android.Manifest
@@ -23,7 +24,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Date
 import java.util.Locale
 import android.content.res.Configuration
 
@@ -97,7 +97,6 @@ class CareScheduleActivity : AppCompatActivity() {
         )
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -144,14 +143,14 @@ class CareScheduleActivity : AppCompatActivity() {
         }
 
         headerText.addView(
-            makeText("Jadwal Perawatan 🐾", 19f, white, true)
+            makeText(getString(R.string.schedule_header), 19f, white, true)
         )
 
         addGap(headerText, 2)
 
         headerText.addView(
             makeText(
-                "Rawat si kecil dengan penuh cinta ♡",
+                getString(R.string.schedule_subtitle),
                 11f,
                 white
             )
@@ -189,14 +188,14 @@ class CareScheduleActivity : AppCompatActivity() {
         }
 
         introPanel.addView(
-            makeText("Halo, Pet Lover! ♡", 20f, dark, true)
+            makeText(getString(R.string.schedule_greeting), 20f, dark, true)
         )
 
         addGap(introPanel, 6)
 
         introPanel.addView(
             makeText(
-                "Jangan lupa jadwalkan perawatan sahabat kecilmu.",
+                getString(R.string.schedule_intro),
                 13f,
                 gray
             )
@@ -205,7 +204,7 @@ class CareScheduleActivity : AppCompatActivity() {
         addGap(introPanel, if (isLandscape) 16 else 18)
 
         val addButton = makeAction(
-            "＋  Tambah Jadwal Perawatan",
+            getString(R.string.schedule_add_button),
             green,
             white
         ) {
@@ -227,7 +226,7 @@ class CareScheduleActivity : AppCompatActivity() {
 
             introPanel.addView(
                 makeText(
-                    "♡ Catat jadwal vaksin, mandi, grooming, dan kesehatan hewan kesayanganmu.",
+                    getString(R.string.schedule_landscape_note),
                     12f,
                     gray
                 )
@@ -253,12 +252,22 @@ class CareScheduleActivity : AppCompatActivity() {
         }
 
         listTitle.addView(
-            makeText("Daftar Jadwal ♡", 17f, dark, true),
+            makeText(
+                getString(R.string.schedule_list_title),
+                17f,
+                dark,
+                true
+            ),
             LinearLayout.LayoutParams(0, -2, 1f)
         )
 
         listTitle.addView(
-            makeText("PAW CARE", 9f, green, true).apply {
+            makeText(
+                getString(R.string.schedule_brand),
+                9f,
+                green,
+                true
+            ).apply {
                 background = shape(mint, 20)
                 setPadding(dp(9), dp(5), dp(9), dp(5))
             }
@@ -343,7 +352,6 @@ class CareScheduleActivity : AppCompatActivity() {
         loadSchedules()
     }
 
-
     // PERMISSION NOTIFICATION
     private fun requestNotificationPermission() {
         if (
@@ -391,7 +399,6 @@ class CareScheduleActivity : AppCompatActivity() {
 
         val triggerTime = getScheduleTimestamp(date, time) ?: return
 
-        // Jangan pasang alarm untuk jadwal yang sudah lewat.
         if (triggerTime <= System.currentTimeMillis()) return
 
         val alarmManager =
@@ -436,7 +443,6 @@ class CareScheduleActivity : AppCompatActivity() {
     }
 
     // LOAD SCHEDULES
-
     private fun loadSchedules() {
         scheduleContainer.removeAllViews()
 
@@ -486,7 +492,7 @@ class CareScheduleActivity : AppCompatActivity() {
 
             emptyCard.addView(
                 makeText(
-                    "Belum Ada Jadwal",
+                    getString(R.string.schedule_empty_title),
                     17f,
                     dark,
                     true
@@ -499,7 +505,7 @@ class CareScheduleActivity : AppCompatActivity() {
 
             emptyCard.addView(
                 makeText(
-                    "Yuk, buat jadwal pertama untuk hewan kesayanganmu!",
+                    getString(R.string.schedule_empty_message),
                     12f,
                     gray
                 ).apply {
@@ -552,7 +558,11 @@ class CareScheduleActivity : AppCompatActivity() {
             )
 
             val statusLabel = makeText(
-                if (schedule.isCompleted) "Selesai ✓" else "Aktif ♡",
+                if (schedule.isCompleted) {
+                    getString(R.string.schedule_status_done)
+                } else {
+                    getString(R.string.schedule_status_active)
+                },
                 10f,
                 if (schedule.isCompleted) {
                     darkGreen
@@ -614,7 +624,12 @@ class CareScheduleActivity : AppCompatActivity() {
             }
 
             dateBox.addView(
-                makeText("📅 TANGGAL", 9f, gray, true)
+                makeText(
+                    getString(R.string.schedule_date_label),
+                    9f,
+                    gray,
+                    true
+                )
             )
 
             addGap(dateBox, 3)
@@ -635,7 +650,12 @@ class CareScheduleActivity : AppCompatActivity() {
             }
 
             timeBox.addView(
-                makeText("🕒 JAM", 9f, gray, true)
+                makeText(
+                    getString(R.string.schedule_time_label),
+                    9f,
+                    gray,
+                    true
+                )
             )
 
             addGap(timeBox, 3)
@@ -712,12 +732,20 @@ class CareScheduleActivity : AppCompatActivity() {
                 buttons.addView(button, params)
             }
 
-            addCardButton("✎ Edit", mint, darkGreen) {
+            addCardButton(
+                getString(R.string.schedule_edit_button),
+                mint,
+                darkGreen
+            ) {
                 showScheduleDialog(schedule)
             }
 
             addCardButton(
-                if (schedule.isCompleted) "↻ Aktifkan" else "✓ Selesai",
+                if (schedule.isCompleted) {
+                    getString(R.string.schedule_reactivate_button)
+                } else {
+                    getString(R.string.schedule_complete_button)
+                },
                 green,
                 white
             ) {
@@ -741,27 +769,32 @@ class CareScheduleActivity : AppCompatActivity() {
             }
 
             addCardButton(
-                "Hapus",
+                getString(R.string.schedule_delete_button),
                 pink,
                 Color.rgb(190, 75, 75)
             ) {
                 AlertDialog.Builder(this)
-                    .setTitle("Hapus Jadwal? ♡")
+                    .setTitle(getString(R.string.schedule_delete_title))
                     .setMessage(
-                        "Yakin ingin menghapus ${schedule.title}?"
+                        getString(
+                            R.string.schedule_delete_message,
+                            schedule.title
+                        )
                     )
-                    .setPositiveButton("Hapus") { _, _ ->
+                    .setPositiveButton(
+                        getString(R.string.schedule_delete_button)
+                    ) { _, _ ->
                         cancelReminder(schedule.id)
                         db.deleteSchedule(schedule.id)
                         loadSchedules()
 
                         Toast.makeText(
                             this,
-                            "Jadwal berhasil dihapus.",
+                            getString(R.string.schedule_delete_success),
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-                    .setNegativeButton("Batal", null)
+                    .setNegativeButton(getString(R.string.cancel), null)
                     .show()
             }
 
@@ -774,7 +807,6 @@ class CareScheduleActivity : AppCompatActivity() {
         }
     }
 
-
     // ADD OR EDIT SCHEDULE
     private fun showScheduleDialog(schedule: CareSchedule?) {
 
@@ -783,7 +815,7 @@ class CareScheduleActivity : AppCompatActivity() {
         if (pets.isEmpty()) {
             Toast.makeText(
                 this,
-                "Tambahkan data hewan terlebih dahulu.",
+                getString(R.string.schedule_no_pets),
                 Toast.LENGTH_SHORT
             ).show()
             return
@@ -814,7 +846,7 @@ class CareScheduleActivity : AppCompatActivity() {
         }
 
         // PET
-        addLabel("🐾 Pilih Hewan")
+        addLabel(getString(R.string.schedule_choose_pet))
 
         val petSpinner = Spinner(this)
         petSpinner.adapter = ArrayAdapter(
@@ -829,16 +861,11 @@ class CareScheduleActivity : AppCompatActivity() {
         )
 
         // CARE TYPE
-        val types = listOf(
-            "Vaksinasi",
-            "Mandi",
-            "Grooming",
-            "Pemberian Obat",
-            "Pemeriksaan Kesehatan",
-            "Perawatan Lainnya"
-        )
+        val types = resources
+            .getStringArray(R.array.care_types)
+            .toList()
 
-        addLabel("♡ Jenis Perawatan")
+        addLabel(getString(R.string.schedule_care_type))
 
         val typeSpinner = Spinner(this)
         typeSpinner.adapter = ArrayAdapter(
@@ -853,9 +880,12 @@ class CareScheduleActivity : AppCompatActivity() {
         )
 
         // TITLE
-        addLabel("✏ Nama Jadwal")
+        addLabel(getString(R.string.schedule_name_label))
 
-        val titleInput = addInput("Contoh: Vaksin rabies")
+        val titleInput = addInput(
+            getString(R.string.schedule_name_hint)
+        )
+
         titleInput.setSingleLine(true)
 
         form.addView(
@@ -883,10 +913,10 @@ class CareScheduleActivity : AppCompatActivity() {
             )
 
         // DATE
-        addLabel("📅 Tanggal Perawatan")
+        addLabel(getString(R.string.schedule_date_title))
 
         val dateButton = makeAction(
-            "Pilih Tanggal  •  $selectedDate",
+            getString(R.string.schedule_date_button, selectedDate),
             mint,
             darkGreen
         ) {}
@@ -909,7 +939,11 @@ class CareScheduleActivity : AppCompatActivity() {
                         selectedMonth + 1,
                         selectedDay
                     )
-                    dateButton.text = "Pilih Tanggal  •  $selectedDate"
+
+                    dateButton.text = getString(
+                        R.string.schedule_date_button,
+                        selectedDate
+                    )
                 },
                 year,
                 month,
@@ -923,10 +957,10 @@ class CareScheduleActivity : AppCompatActivity() {
         )
 
         // TIME
-        addLabel("🕒 Jam Perawatan")
+        addLabel(getString(R.string.schedule_time_title))
 
         val timeButton = makeAction(
-            "Pilih Jam  •  $selectedTime",
+            getString(R.string.schedule_time_button, selectedTime),
             lavender,
             darkGreen
         ) {}
@@ -947,7 +981,11 @@ class CareScheduleActivity : AppCompatActivity() {
                         selectedHour,
                         selectedMinute
                     )
-                    timeButton.text = "Pilih Jam  •  $selectedTime"
+
+                    timeButton.text = getString(
+                        R.string.schedule_time_button,
+                        selectedTime
+                    )
                 },
                 hour,
                 minute,
@@ -961,9 +999,12 @@ class CareScheduleActivity : AppCompatActivity() {
         )
 
         // NOTES
-        addLabel("📝 Catatan (Opsional)")
+        addLabel(getString(R.string.schedule_notes_label))
 
-        val notesInput = addInput("Contoh: Bawa buku vaksin")
+        val notesInput = addInput(
+            getString(R.string.schedule_notes_hint)
+        )
+
         notesInput.minLines = 2
         notesInput.maxLines = 3
         notesInput.gravity = Gravity.TOP
@@ -994,12 +1035,15 @@ class CareScheduleActivity : AppCompatActivity() {
 
         val dialog = AlertDialog.Builder(this)
             .setTitle(
-                if (schedule == null) "♡ Tambah Jadwal"
-                else "♡ Edit Jadwal"
+                if (schedule == null) {
+                    getString(R.string.schedule_add_title)
+                } else {
+                    getString(R.string.schedule_edit_title)
+                }
             )
             .setView(scrollForm)
-            .setPositiveButton("Simpan", null)
-            .setNegativeButton("Batal", null)
+            .setPositiveButton(getString(R.string.save), null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .create()
 
         dialog.setOnShowListener {
@@ -1013,10 +1057,21 @@ class CareScheduleActivity : AppCompatActivity() {
             dialog.getButton(AlertDialog.BUTTON_POSITIVE)
                 .setOnClickListener {
 
+
                     val title = titleInput.text.toString().trim()
-                        .ifEmpty {
-                            typeSpinner.selectedItem.toString()
-                        }
+
+                    if (title.isEmpty()) {
+                        Toast.makeText(
+                            this,
+                            getString(R.string.schedule_name_required),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        titleInput.error = getString(R.string.schedule_name_required)
+                        titleInput.requestFocus()
+                        return@setOnClickListener
+                    }
+
 
                     val petId = pets[
                         petSpinner.selectedItemPosition
@@ -1037,7 +1092,7 @@ class CareScheduleActivity : AppCompatActivity() {
                     if (triggerTime == null) {
                         Toast.makeText(
                             this,
-                            "Tanggal atau jam tidak valid.",
+                            getString(R.string.schedule_invalid_datetime),
                             Toast.LENGTH_SHORT
                         ).show()
                         return@setOnClickListener
@@ -1046,7 +1101,7 @@ class CareScheduleActivity : AppCompatActivity() {
                     if (triggerTime <= System.currentTimeMillis()) {
                         Toast.makeText(
                             this,
-                            "Pilih tanggal dan jam yang akan datang.",
+                            getString(R.string.schedule_future_datetime),
                             Toast.LENGTH_SHORT
                         ).show()
                         return@setOnClickListener
@@ -1092,14 +1147,14 @@ class CareScheduleActivity : AppCompatActivity() {
 
                         Toast.makeText(
                             this,
-                            "Jadwal berhasil disimpan ♡",
+                            getString(R.string.schedule_save_success),
                             Toast.LENGTH_SHORT
                         ).show()
 
                     } else {
                         Toast.makeText(
                             this,
-                            "Jadwal gagal disimpan.",
+                            getString(R.string.schedule_save_failed),
                             Toast.LENGTH_SHORT
                         ).show()
                     }

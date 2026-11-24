@@ -34,4 +34,228 @@
     <string name="delete">Hapus</string>
     <string name="delete_success">%1$s berhasil dihapus</string>
     <string name="load_pets_error">Gagal memuat data hewan. Silakan coba lagi.</string>
+
+    <!-- Menu pilihan hewan -->
+    <string name="view_detail">Lihat Detail</string>
+    <string name="edit_pet_menu">Edit Hewan</string>
+    <string name="delete_pet_menu">Hapus Hewan</string>
+    <string name="manage_pet_title">Kelola %1$s 🐾</string>
+
+    <!-- Informasi jumlah hewan -->
+    <string name="pet_count">%1$d Hewan</string>
+    <string name="data_unavailable">Data tidak tersedia</string>
+
+    <!-- Pesan edit -->
+    <string name="update_success">Data hewan berhasil diperbarui!</string>
+
+    <!-- Loading -->
+    <string name="loading_pets">Memuat data hewan...</string>
+    <string name="pet_details">🎂 %1$s   ⚖️ %2$s</string>
+    <string-array name="age_units">
+        <item>Tahun</item>
+        <item>Bulan</item>
+    </string-array>
+    <string name="age_months">%1$d bulan</string>
+    <string name="age_years">%1$d tahun</string>
+    <string name="age_years_months">%1$d tahun %2$d bulan</string>
+    <string name="pet_weight">%1$s kg</string>
+
+    <!-- Halaman Detail Hewan -->
+    <string name="detail_back_title">← Detail Hewan</string>
+    <string name="detail_photo_description">Foto hewan</string>
+    <string name="detail_choose_photo">Pilih Foto dari Galeri</string>
+    <string name="detail_pet_name_placeholder">Nama Hewan</string>
+    <string name="detail_subtitle">Sahabat kecil kesayanganmu 🐾</string>
+    <string name="detail_information_title">Informasi Hewan</string>
+    <string name="detail_type_label">Jenis Hewan</string>
+    <string name="detail_breed_label">Ras Hewan</string>
+    <string name="detail_age_label">Umur</string>
+    <string name="detail_weight_label">Berat Badan</string>
+    <string name="detail_value_placeholder">-</string>
+    <string name="age_unit_months">Bulan</string>
+    <string name="log_count_error">Gagal menghitung jumlah hewan</string>
+    <string name="log_load_error">Gagal memuat data hewan</string>
+
+    <!-- Form Tambah dan Edit Hewan -->
+    <string name="form_title">Tambah Hewan 🐾</string>
+    <string name="form_subtitle">Yuk, lengkapi informasi hewan kesayanganmu!</string>
+    <string name="hint_pet_name">Nama Hewan</string>
+    <string name="hint_pet_type">Jenis Hewan (Kucing, Anjing, dll.)</string>
+    <string name="hint_pet_breed">Ras Hewan</string>
+    <string name="hint_pet_age">Umur</string>
+    <string name="hint_pet_weight">Berat Badan (kg)</string>
+    <string name="button_save_pet">Simpan Hewan</string>
+
+    <!-- Beranda -->
+    <string name="home_title">PetCare 🐾</string>
+    <string name="home_greeting">Hai, Sahabat PetCare! 💚</string>
+    <string name="home_tagline">Rawat mereka dengan penuh cinta.</string>
+    <string name="dashboard_title">Dashboard 🐾</string>
+    <string name="dashboard_subtitle">Semua perhatian terbaik untuk sahabat kecilmu.</string>
+    <string name="home_pet_collection">🐾  SAHABAT KECILKU</string>
+    <string name="home_pet_count">0 Hewan</string>
+    <string name="home_pet_message">Setiap sahabat punya tempat istimewa di hatimu 💚</string>
+    <string name="home_view_pets">Lihat Koleksi Hewanku  →</string>
+    <string name="home_activities">Yuk, Mulai Aktivitas!</string>
+    <string name="home_pet_data">Data Hewan</string>
+    <string name="home_manage_pets">Kelola sahabatmu</string>
+    <string name="home_schedule">Jadwal Rawat</string>
+    <string name="home_reminder">Atur pengingat</string>
+    <string name="home_care_title">Jangan Lupa Perawatan!</string>
+    <string name="home_care_message">Pantau jadwal vaksin dan perawatan sahabatmu.</string>
+    <string name="home_tips_title">💡 Tips Sahabat PetCare</string>
+    <string name="home_tips_message">Pastikan hewan kesayanganmu selalu mendapat air minum bersih, makanan bergizi, dan pemeriksaan kesehatan secara rutin.</string>
+    <string name="home_footer">Made with love for every little paw 🐾</string>
+
+    <!-- Halaman Koleksi Hewan -->
+    <string name="pets_section_title">🐾 Koleksi Sahabatku</string>
+    <string name="pets_section_subtitle">Kenali dan kelola teman berbulu di rumah.</string>
+    <string name="search_pet_hint">Cari nama, jenis, atau ras hewan...</string>
+    <string name="button_add_new_pet">＋  Tambah Sahabat Baru</string>
+
+
+    <!-- Halaman Profil -->
+    <string name="profile_title">Profil Saya 🐾</string>
+    <string name="profile_subtitle">Kenali akun dan aktivitas PetCare kamu</string>
+    <string name="profile_pet_title">Sahabat Hewan Kesayangan</string>
+    <string name="profile_thank_you">Terima kasih sudah merawat mereka bersama PetCare! 💚</string>
+    <string name="profile_account_info">👤  Informasi Akun</string>
+    <string name="profile_email_label">Email Akun</string>
+    <string name="profile_email_placeholder">email pengguna</string>
+    <string name="profile_status_label">Status Akun</string>
+    <string name="profile_active">●  Aktif</string>
+    <string name="profile_logout_button">Keluar dari Akun  ↗</string>
+    <string name="profile_about_title">🌷  Tentang PetCare</string>
+    <string name="profile_about_description">PetCare membantu kamu mengelola data hewan peliharaan, menyimpan foto, serta mencatat jadwal vaksinasi dan perawatan agar sahabat kecilmu selalu sehat.</string>
+    <string name="profile_footer">Made with 💚 for your lovely pets</string>
+
+    <!-- Konfirmasi Logout -->
+    <string name="profile_logout_title">Logout</string>
+    <string name="profile_logout_message">Apakah kamu yakin ingin keluar dari akun PetCare?</string>
+    <string name="profile_logout_confirm">Ya, Keluar</string>
+    <string name="profile_email_unavailable">Email tidak tersedia</string>
+
+
+    <!-- Halaman Jadwal Perawatan -->
+    <string name="schedule_header">Jadwal Perawatan 🐾</string>
+    <string name="schedule_subtitle">Rawat si kecil dengan penuh cinta ♡</string>
+    <string name="schedule_greeting">Halo, Pet Lover! ♡</string>
+    <string name="schedule_intro">Jangan lupa jadwalkan perawatan sahabat kecilmu.</string>
+    <string name="schedule_add_button">＋  Tambah Jadwal Perawatan</string>
+    <string name="schedule_landscape_note">♡ Catat jadwal vaksin, mandi, grooming, dan kesehatan hewan kesayanganmu.</string>
+    <string name="schedule_list_title">Daftar Jadwal ♡</string>
+    <string name="schedule_brand">PAW CARE</string>
+
+    <!-- Kondisi Jadwal Kosong -->
+    <string name="schedule_empty_title">Belum Ada Jadwal</string>
+    <string name="schedule_empty_message">Yuk, buat jadwal pertama untuk hewan kesayanganmu!</string>
+
+    <!-- Status Jadwal -->
+    <string name="schedule_status_done">Selesai ✓</string>
+    <string name="schedule_status_active">Aktif ♡</string>
+    <string name="schedule_date_label">📅 TANGGAL</string>
+    <string name="schedule_time_label">🕒 JAM</string>
+    <string name="schedule_edit_button">✎ Edit</string>
+    <string name="schedule_reactivate_button">↻ Aktifkan</string>
+    <string name="schedule_complete_button">✓ Selesai</string>
+
+    <!-- Hapus Jadwal -->
+    <string name="schedule_delete_title">Hapus Jadwal? ♡</string>
+    <string name="schedule_delete_message">Yakin ingin menghapus %1$s?</string>
+    <string name="schedule_delete_button">Hapus</string>
+    <string name="schedule_delete_success">Jadwal berhasil dihapus.</string>
+
+    <!-- Form Jadwal -->
+    <string name="schedule_no_pets">Tambahkan data hewan terlebih dahulu.</string>
+    <string name="schedule_choose_pet">🐾 Pilih Hewan</string>
+    <string name="schedule_care_type">♡ Jenis Perawatan</string>
+    <string name="schedule_name_label">✏ Nama Jadwal</string>
+    <string name="schedule_name_hint">Contoh: Vaksin rabies</string>
+    <string name="schedule_date_title">📅 Tanggal Perawatan</string>
+    <string name="schedule_date_button">Pilih Tanggal  •  %1$s</string>
+    <string name="schedule_time_title">🕒 Jam Perawatan</string>
+    <string name="schedule_time_button">Pilih Jam  •  %1$s</string>
+    <string name="schedule_notes_label">📝 Catatan (Opsional)</string>
+    <string name="schedule_notes_hint">Contoh: Bawa buku vaksin</string>
+    <string name="schedule_add_title">♡ Tambah Jadwal</string>
+    <string name="schedule_edit_title">♡ Edit Jadwal</string>
+
+    <!-- Jenis Perawatan -->
+    <string-array name="care_types">
+        <item>Vaksinasi</item>
+        <item>Mandi</item>
+        <item>Grooming</item>
+        <item>Pemberian Obat</item>
+        <item>Pemeriksaan Kesehatan</item>
+        <item>Perawatan Lainnya</item>
+    </string-array>
+
+    <!-- Validasi dan Hasil Penyimpanan Jadwal -->
+    <string name="schedule_invalid_datetime">Tanggal atau jam tidak valid.</string>
+    <string name="schedule_future_datetime">Pilih tanggal dan jam yang akan datang.</string>
+    <string name="schedule_save_success">Jadwal berhasil disimpan ♡</string>
+    <string name="schedule_save_failed">Jadwal gagal disimpan.</string>
+
+
+    <!-- Notifikasi Pengingat Perawatan -->
+    <string name="reminder_fallback_title">Jadwal Perawatan</string>
+    <string name="reminder_fallback_pet">Hewan kesayangan</string>
+    <string name="reminder_channel_name">Pengingat PetCare</string>
+    <string name="reminder_channel_description">Pengingat jadwal vaksinasi dan perawatan hewan</string>
+    <string name="reminder_notification_title">Saatnya merawat %1$s! 🐾</string>
+    <string name="reminder_notification_message">%1$s untuk %2$s. Jangan lupa perawatannya ya!</string>
+
+    <!-- Halaman Login -->
+    <string name="login_welcome">Selamat datang kembali!</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="login_register_prompt">Belum punya akun? Daftar</string>
+
+    <!-- Halaman Register -->
+    <string name="register_title">Buat Akun PetCare</string>
+    <string name="register_email_hint">Email</string>
+    <string name="register_password_hint">Password (minimal 6 karakter)</string>
+    <string name="register_confirm_password_hint">Konfirmasi Password</string>
+    <string name="register_button">Daftar Sekarang</string>
+    <string name="register_back_login">Kembali ke Login</string>
+
+    <!-- Beranda Landscape -->
+    <string name="land_dashboard_title">Dashboard 🐾</string>
+    <string name="land_dashboard_subtitle">Semua perhatian terbaik untuk sahabat kecilmu.</string>
+    <string name="land_pet_collection">🐾 SAHABAT KECILKU</string>
+    <string name="land_pet_count">0 Hewan</string>
+    <string name="land_view_pets">Lihat Koleksi Hewanku →</string>
+    <string name="land_activities_title">Yuk, Mulai Aktivitas! ✨</string>
+    <string name="land_pet_data">🐶  Data Hewan</string>
+    <string name="land_schedule">📅  Jadwal Perawatan</string>
+    <string name="land_reminder">💉  Jangan lupa pantau jadwal vaksin dan perawatan sahabatmu.</string>
+    <string name="land_care_tip">💚  Pastikan sahabatmu mendapat makanan bergizi dan air bersih.</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Beranda</string>
+    <string name="nav_pets">Hewan</string>
+    <string name="nav_schedule">Jadwal</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Pesan Login -->
+    <string name="login_empty_fields">Email dan password wajib diisi</string>
+    <string name="login_invalid_email">Format email tidak valid</string>
+    <string name="login_success">Login berhasil!</string>
+    <string name="login_wrong_credentials">Email atau password salah.</string>
+    <string name="login_network_error">Koneksi internet bermasalah. Periksa jaringanmu.</string>
+    <string name="login_too_many_attempts">Terlalu banyak percobaan. Coba lagi nanti.</string>
+    <string name="login_failed">Login gagal. Silakan coba kembali.</string>
+
+    <!-- Pesan Register -->
+    <string name="register_empty_fields">Semua kolom wajib diisi</string>
+    <string name="register_invalid_email">Format email tidak valid</string>
+    <string name="register_password_short">Password minimal 6 karakter</string>
+    <string name="register_password_mismatch">Konfirmasi password tidak cocok</string>
+    <string name="register_success">Pendaftaran berhasil!</string>
+    <string name="register_email_exists">Email sudah terdaftar. Gunakan email lain.</string>
+    <string name="register_weak_password">Password terlalu lemah. Gunakan minimal 6 karakter.</string>
+    <string name="register_failed">Pendaftaran gagal. Silakan coba kembali.</string>
+
+    <string name="schedule_name_required">Nama jadwal wajib diisi.</string>
 </resources>

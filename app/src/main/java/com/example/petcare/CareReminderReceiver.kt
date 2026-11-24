@@ -13,18 +13,24 @@ import androidx.core.app.NotificationManagerCompat
 class CareReminderReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
-        val title = intent.getStringExtra("title") ?: "Jadwal Perawatan"
-        val petName = intent.getStringExtra("petName") ?: "Hewan kesayangan"
+
+        val title = intent.getStringExtra("title")
+            ?: context.getString(R.string.reminder_fallback_title)
+
+        val petName = intent.getStringExtra("petName")
+            ?: context.getString(R.string.reminder_fallback_pet)
 
         val channelId = "petcare_reminders"
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 channelId,
-                "Pengingat PetCare",
+                context.getString(R.string.reminder_channel_name),
                 NotificationManager.IMPORTANCE_HIGH
             ).apply {
-                description = "Pengingat jadwal vaksinasi dan perawatan hewan"
+                description = context.getString(
+                    R.string.reminder_channel_description
+                )
             }
 
             val manager = context.getSystemService(
@@ -34,22 +40,40 @@ class CareReminderReceiver : BroadcastReceiver() {
             manager.createNotificationChannel(channel)
         }
 
-        val openAppIntent = Intent(context, MainActivity::class.java)
+        val openAppIntent = Intent(
+            context,
+            MainActivity::class.java
+        )
 
         val pendingIntent = PendingIntent.getActivity(
             context,
             0,
             openAppIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            PendingIntent.FLAG_UPDATE_CURRENT or
+                    PendingIntent.FLAG_IMMUTABLE
         )
 
-        val notification = NotificationCompat.Builder(context, channelId)
+        val notification = NotificationCompat.Builder(
+            context,
+            channelId
+        )
             .setSmallIcon(R.drawable.ic_schedule)
-            .setContentTitle("Saatnya merawat $petName! 🐾")
+            .setContentTitle(
+                context.getString(
+                    R.string.reminder_notification_title,
+                    petName
+                )
+            )
             .setContentText(title)
             .setStyle(
                 NotificationCompat.BigTextStyle()
-                    .bigText("$title untuk $petName. Jangan lupa perawatannya ya!")
+                    .bigText(
+                        context.getString(
+                            R.string.reminder_notification_message,
+                            title,
+                            petName
+                        )
+                    )
             )
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)

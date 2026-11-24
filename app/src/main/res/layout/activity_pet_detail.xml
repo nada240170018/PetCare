@@ -15,7 +15,7 @@
             android:id="@+id/tvBackDetail"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="← Detail Hewan"
+            android:text="@string/detail_back_title"
             android:gravity="center_vertical"
             android:paddingStart="4dp"
             android:clickable="true"
@@ -46,21 +46,21 @@
                 android:layout_marginTop="16dp"
                 android:scaleType="centerCrop"
                 android:visibility="gone"
-                android:contentDescription="Foto hewan" />
+                android:contentDescription="@string/detail_photo_description" />
 
             <Button
                 android:id="@+id/btnChoosePhoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="Pilih Foto dari Galeri"
+                android:text="@string/detail_choose_photo"
                 android:textAllCaps="false" />
 
             <TextView
                 android:id="@+id/tvDetailName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Hewan"
+                android:text="@string/detail_pet_name_placeholder"
                 android:textColor="#245B49"
                 android:textSize="27sp"
                 android:textStyle="bold"
@@ -69,7 +69,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sahabat kecil kesayanganmu 🐾"
+                android:text="@string/detail_subtitle"
                 android:textColor="#527C6B"
                 android:textSize="14sp"
                 android:layout_marginTop="6dp" />
@@ -79,7 +79,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Informasi Hewan"
+            android:text="@string/detail_information_title"
             android:textColor="#354B40"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -96,7 +96,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jenis Hewan"
+                android:text="@string/detail_type_label"
                 android:textColor="#8B938B"
                 android:textSize="13sp" />
 
@@ -104,7 +104,7 @@
                 android:id="@+id/tvDetailType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="-"
+                android:text="@string/detail_value_placeholder"
                 android:textColor="#354B40"
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -113,7 +113,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ras Hewan"
+                android:text="@string/detail_breed_label"
                 android:textColor="#8B938B"
                 android:textSize="13sp" />
 
@@ -121,7 +121,7 @@
                 android:id="@+id/tvDetailBreed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="-"
+                android:text="@string/detail_value_placeholder"
                 android:textColor="#354B40"
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -130,7 +130,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Umur"
+                android:text="@string/detail_age_label"
                 android:textColor="#8B938B"
                 android:textSize="13sp" />
 
@@ -138,7 +138,7 @@
                 android:id="@+id/tvDetailAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="-"
+                android:text="@string/detail_value_placeholder"
                 android:textColor="#354B40"
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -147,7 +147,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Berat Badan"
+                android:text="@string/detail_weight_label"
                 android:textColor="#8B938B"
                 android:textSize="13sp" />
 
@@ -155,7 +155,7 @@
                 android:id="@+id/tvDetailWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="-"
+                android:text="@string/detail_value_placeholder"
                 android:textColor="#354B40"
                 android:textSize="17sp"
                 android:textStyle="bold" />

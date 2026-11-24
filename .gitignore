@@ -23,3 +23,6 @@ local.properties
 *.jks
 *.keystore
 keystore.properties
+
+# Release APK output
+/app/release/

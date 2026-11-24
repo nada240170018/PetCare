@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.math.roundToInt
 class PetDetailActivity : AppCompatActivity() {
 
     private lateinit var dbHelper: PetDatabaseHelper
@@ -75,8 +76,24 @@ class PetDetailActivity : AppCompatActivity() {
             tvName.text = pet.name
             tvType.text = pet.type
             tvBreed.text = pet.breed
-            tvAge.text = "${pet.age} tahun"
-            tvWeight.text = "${pet.weight} kg"
+            val totalMonths = (pet.age * 12).roundToInt()
+            val years = totalMonths / 12
+            val months = totalMonths % 12
+
+            tvAge.text = when {
+                totalMonths < 12 -> getString(R.string.age_months, totalMonths)
+                months == 0 -> getString(R.string.age_years, years)
+                else -> getString(
+                    R.string.age_years_months,
+                    years,
+                    months
+                )
+            }
+
+            tvWeight.text = getString(
+                R.string.pet_weight,
+                pet.weight.toString()
+            )
 
             if (!pet.photoUri.isNullOrEmpty()) {
                 try {

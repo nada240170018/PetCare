@@ -18,15 +18,16 @@ class ProfileActivity : AppCompatActivity() {
         val tvEmail = findViewById<TextView>(R.id.tvProfileEmail)
 
         val currentUser = FirebaseAuth.getInstance().currentUser
-        tvEmail.text = currentUser?.email ?: "Email tidak tersedia"
+        tvEmail.text = currentUser?.email
+            ?: getString(R.string.profile_email_unavailable)
 
         val btnLogout = findViewById<Button>(R.id.btnLogout)
 
         btnLogout.setOnClickListener {
             AlertDialog.Builder(this)
-                .setTitle("Logout")
-                .setMessage("Apakah kamu yakin ingin keluar dari akun PetCare?")
-                .setPositiveButton("Ya, Keluar") { _, _ ->
+                .setTitle(getString(R.string.profile_logout_title))
+                .setMessage(getString(R.string.profile_logout_message))
+                .setPositiveButton(getString(R.string.profile_logout_confirm)) { _, _ ->
                     FirebaseAuth.getInstance().signOut()
 
                     val intent = Intent(this, LoginActivity::class.java)
@@ -36,7 +37,7 @@ class ProfileActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 }
-                .setNegativeButton("Batal", null)
+                .setNegativeButton(getString(R.string.cancel), null)
                 .show()
         }
 

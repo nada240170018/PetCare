@@ -13,7 +13,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-
+import android.widget.Spinner
 class MainActivity : AppCompatActivity() {
 
     private lateinit var dbHelper: PetDatabaseHelper
@@ -186,19 +186,26 @@ class MainActivity : AppCompatActivity() {
     private fun updatePetCount() {
         try {
             val totalPets = dbHelper.getAllPets().size
-            tvTotalPets.text = "$totalPets Hewan"
+            tvTotalPets.text = getString(R.string.pet_count, totalPets)
         } catch (e: Exception) {
             android.util.Log.e(
-                "PetCare",
-                "Gagal menghitung jumlah hewan",
+                getString(R.string.app_name),
+                getString(R.string.log_count_error),
                 e
             )
-            tvTotalPets.text = "Data tidak tersedia"
+            tvTotalPets.text = getString(R.string.data_unavailable)
         }
     }
 
     override fun onResume() {
         super.onResume()
+
+        if (
+            bottomNavigation.selectedItemId == R.id.nav_schedule ||
+            bottomNavigation.selectedItemId == R.id.nav_profile
+        ) {
+            bottomNavigation.selectedItemId = R.id.nav_home
+        }
 
         updatePetCount()
 
@@ -239,8 +246,8 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
 
             android.util.Log.e(
-                "PetCare",
-                "Gagal memuat data hewan",
+                getString(R.string.app_name),
+                getString(R.string.log_load_error),
                 e
             )
 
@@ -257,13 +264,13 @@ class MainActivity : AppCompatActivity() {
     private fun showPetOptions(pet: Pet) {
 
         val options = arrayOf(
-            "Lihat Detail",
-            "Edit Hewan",
-            "Hapus Hewan"
+            getString(R.string.view_detail),
+            getString(R.string.edit_pet_menu),
+            getString(R.string.delete_pet_menu)
         )
 
         android.app.AlertDialog.Builder(this)
-            .setTitle("Kelola ${pet.name} 🐾")
+            .setTitle(getString(R.string.manage_pet_title, pet.name))
             .setItems(options) { _, which ->
 
                 when (which) {
@@ -307,12 +314,19 @@ class MainActivity : AppCompatActivity() {
         val type = view.findViewById<EditText>(R.id.etPetType)
         val breed = view.findViewById<EditText>(R.id.etPetBreed)
         val age = view.findViewById<EditText>(R.id.etPetAge)
+        val ageUnit = view.findViewById<Spinner>(R.id.spAgeUnit)
         val weight = view.findViewById<EditText>(R.id.etPetWeight)
 
         name.setText(pet.name)
         type.setText(pet.type)
         breed.setText(pet.breed)
-        age.setText(pet.age.toString())
+        if (pet.age < 1.0) {
+            age.setText((pet.age * 12).toInt().toString())
+            ageUnit.setSelection(1) // Bulan
+        } else {
+            age.setText(pet.age.toString())
+            ageUnit.setSelection(0) // Tahun
+        }
         weight.setText(pet.weight.toString())
 
         val dialog = android.app.AlertDialog.Builder(this)
@@ -331,7 +345,15 @@ class MainActivity : AppCompatActivity() {
                 val newName = name.text.toString().trim()
                 val newType = type.text.toString().trim()
                 val newBreed = breed.text.toString().trim()
-                val newAge = age.text.toString().toDoubleOrNull()
+                val enteredAge = age.text.toString().toDoubleOrNull()
+
+                val newAge = if (enteredAge != null &&
+                    ageUnit.selectedItem.toString() == getString(R.string.age_unit_months)
+                ) {
+                    enteredAge / 12.0
+                } else {
+                    enteredAge
+                }
                 val newWeight = weight.text.toString().toDoubleOrNull()
 
                 if (
@@ -367,7 +389,7 @@ class MainActivity : AppCompatActivity() {
 
                 Toast.makeText(
                     this,
-                    "Data hewan berhasil diperbarui!",
+                    getString(R.string.update_success),
                     Toast.LENGTH_SHORT
                 ).show()
             }
